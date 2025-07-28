@@ -1,0 +1,19 @@
+
+<section>
+
+    @if(!items){
+        <img width="500" src="loading.gif" alt="">
+    } @else if (items && items.length === 0) {
+        <div #empty>
+            <ng-content select="[empty]"></ng-content>
+        </div>
+
+        @if(!empty.innerHTML.trim()){
+            <p>No items to display.</p>
+        }
+
+    }@else {
+        <ng-content select="[content]"></ng-content>
+    }
+
+</section>
