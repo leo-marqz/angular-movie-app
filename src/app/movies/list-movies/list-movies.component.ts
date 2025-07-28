@@ -12,11 +12,7 @@ export class ListMoviesComponent implements OnInit {
   @Input({required: true}) // Input property to receive movies data
   movies!: any[]; // <app-list-movies [movies]="moviesOnlyInTheaters"></app-list-movies>
 
-  ngOnInit(): void {
-    // setTimeout(() => {
-    //   this.movies = [];
-    // }, 2000);
-  }
+  ngOnInit(): void {}
 
   addNewMovie(): void {
     this.movies.push({
