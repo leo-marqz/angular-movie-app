@@ -17,21 +17,5 @@ export class ListMoviesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addNewMovie(): void {
-    this.movies.push({
-      title: 'Inception',
-      releaseDate: new Date('2010-07-16'),
-      price: 999.99,
-      poster: ''
-    });
-    console.log('New movie added:', this.movies[this.movies.length - 1]);
-  }
-
-  removeMovie(movie: any): void {
-    const index = this.movies.findIndex((current)=>current.title === movie.title);
-    if (index > -1) {
-      this.movies.splice(index, 1);
-    }
-    console.log('Movie removed:', movie);
-  }
+  
 }
