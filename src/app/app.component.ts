@@ -4,12 +4,13 @@ import { RouterOutlet } from '@angular/router';
 import { ListMoviesComponent } from './movies/list-movies/list-movies.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { MenuComponent } from "./shared/components/menu/menu.component";
+import { RatingComponent } from "./shared/components/rating/rating.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   // imports: [DatePipe, CurrencyPipe, NgOptimizedImage, NgIf],
-  imports: [ListMoviesComponent, MatDividerModule, MenuComponent],
+  imports: [ListMoviesComponent, MatDividerModule, MenuComponent, RatingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -67,7 +68,7 @@ export class AppComponent implements OnInit {
     }, 2000);
   }
 
-  onEventClick(): void {
-    console.log('Event clicked');
+  processVote(vote: number): void {
+    console.log(`Vote processed: ${vote}`);
   }
 }
