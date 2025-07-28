@@ -1,0 +1,45 @@
+
+<button (click)="addNewMovie()">Agregar Nueva Película</button>
+
+<section>
+
+    @if(!movies){
+        <img width="500" src="loading.gif" alt="">
+    }
+
+    @if(movies && movies.length === 0){
+        <p>No movies available at the moment.</p>
+    }
+
+    @for (movie of movies; track $index) {
+        <div class="movie-container">
+            <div style="display: flex; flex-direction: row; gap: 30px">
+                <div>
+                    @if(movie.poster) {
+                        <img 
+                            src="{{movie.poster}}"
+                            alt="{{movie.title}} poster" 
+                            height="250" 
+                            width="169" 
+                        />
+                    } @else {
+                        <img 
+                            src="default.jpg" 
+                            alt="Default poster" 
+                            height="250" 
+                            width="169" 
+                        />
+                    }
+                </div>
+                <div>
+                    <h2>{{movie.title}}</h2>
+                    <p>Release Date: {{movie.releaseDate | date:'longDate'}}</p>
+                    <p>Price: {{movie.price | currency:'USD':'symbol':'1.2-2'}}</p>
+                    <button (click)="removeMovie(movie)">Remove</button>
+                </div>
+            </div>
+            
+        </div>
+    }
+
+</section>
