@@ -27,9 +27,9 @@
                         <h2>{{movie.title}}</h2>
                         <p>Release Date: {{movie.releaseDate | date:'longDate'}}</p>
                         <p>Price: {{movie.price | currency:'USD':'symbol':'1.2-2'}}</p>
-                        <button mat-flat-button matButton="elevated" (click)="removeMovie(movie)">
+                        <button mat-flat-button class="warn" matButton="elevated" (click)="removeMovie(movie)">
                             <mat-icon>delete</mat-icon>
-                            Eliminar
+                            Eliminar 
                         </button>
                     </div>
                 </div>

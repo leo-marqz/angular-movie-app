@@ -10,7 +10,7 @@ import { RatingComponent } from "./shared/components/rating/rating.component";
   selector: 'app-root',
   standalone: true,
   // imports: [DatePipe, CurrencyPipe, NgOptimizedImage, NgIf],
-  imports: [ListMoviesComponent, MatDividerModule, MenuComponent, RatingComponent],
+  imports: [ListMoviesComponent, MatDividerModule, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
