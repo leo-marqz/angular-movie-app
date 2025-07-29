@@ -3,11 +3,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-list-genres',
+  selector: 'app-list-cines',
   imports: [RouterLink, MatButtonModule],
-  templateUrl: './list-genres.component.html',
-  styleUrl: './list-genres.component.css'
+  templateUrl: './list-cines.component.html',
+  styleUrl: './list-cines.component.css'
 })
-export class ListGenresComponent {
+export class ListCinesComponent {
 
 }
