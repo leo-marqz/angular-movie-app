@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, numberAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-edit-cine',
@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './edit-cine.component.css'
 })
 export class EditCineComponent {
+
+  @Input({ transform: numberAttribute })
+  id!:number;
 
 }
