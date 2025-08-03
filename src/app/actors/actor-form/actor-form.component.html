@@ -1,0 +1,20 @@
+<form [formGroup]="form" (submit)="loadChanges()" >
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre Actor</mat-label>
+        <input matInput [formControl]="form.controls.name" />
+        <mat-error></mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput [formControl]="form.controls.dateOfBirth" [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="container-buttons">
+        <button mat-flat-button type="submit" [disabled]="form.invalid"> Guardar</button>
+        <a class="warn" mat-stroked-button routerLink="/actors" >Cancelar</a>
+    </div>
+
+</form>

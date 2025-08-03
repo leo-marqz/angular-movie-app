@@ -6,56 +6,23 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { CustomValidators } from '../../shared/functions/validations';
 
+import color from 'picocolors';
+import { GenreFormComponent } from "../genre-form/genre-form.component";
+import { CreateGenreDto } from '../genre';
+
 @Component({
   selector: 'app-create-genre',
-  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule],
+  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, GenreFormComponent],
   templateUrl: './create-genre.component.html',
   styleUrl: './create-genre.component.css'
 })
 export class CreateGenreComponent {
 
   private router: Router = inject(Router);
-  private formBuilder    = inject(FormBuilder);
+  
 
-  form = this.formBuilder.group({
-    name: ['', {validators: [
-      Validators.required, 
-      Validators.minLength(3),
-      Validators.maxLength(15),
-      CustomValidators.firstLetterCapitalized()
-    ]}]
-  });
-
-  async saveChangesAsync(){
-    //saving.........new genre...
-    // this.router.navigate(['/genres']);
-    console.log(this.form.value);
-    // console.log('redirecting.......');
-  }
-
-  getNameErrors(): string {
-    const control = this.form.controls.name;
-    if (!control || !control.errors) return '';
-
-    if (control.hasError('required')) {
-      return 'El campo nombre es obligatorio.';
-    }
-
-    if (control.hasError('minlength')) {
-      const requiredLength = control.getError('minlength').requiredLength;
-      return `Debe tener al menos ${requiredLength} caracteres.`;
-    }
-
-    if (control.hasError('maxlength')) {
-      const requiredLength = control.getError('maxlength').requiredLength;
-      return `Debe tener máximo ${requiredLength} caracteres.`;
-    }
-
-    if (control.hasError('firstLetterCapitalized')) {
-      return control.getError('firstLetterCapitalized').message; 
-    }
-
-    return 'El campo contiene errores.';
+  async saveChanges(genre: CreateGenreDto){
+    console.log(`Saving new genre... ${JSON.stringify(genre)}`);
   }
 
 }

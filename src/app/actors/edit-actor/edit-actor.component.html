@@ -1,3 +1,5 @@
 <p>edit-actor works!</p>
 
 <p>El ID del actor a editar es: {{id}}</p>
+
+<app-actor-form [model]="actor" (postForm)="saveChanges($event)"></app-actor-form>

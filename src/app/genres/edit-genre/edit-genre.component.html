@@ -1,3 +1,5 @@
 <p>edit-genre works!</p>
 
 <p>El ID del genero a editar es: {{id}}</p>
+
+<app-genre-form (postForm)="saveChanges($event)" [model]="genre"></app-genre-form>

@@ -1,20 +1,4 @@
-<p>Crear Genero</p>
+<p>Añadir Genero</p>
 
-<form (submit)="saveChangesAsync()" [formGroup]="form" >
-    <mat-form-field appearance="outline">
-        <mat-label>Nombre Genero</mat-label>
-        <input matInput [formControl]="form.controls.name" />
-        <mat-error>{{getNameErrors()}}</mat-error>
-    </mat-form-field>
-
-    <div class="container-buttons">
-        <button 
-            mat-flat-button 
-            type="button" 
-            (click)="saveChangesAsync()" 
-            [disabled]="form.invalid"
-        >Guardar</button>
-        <a class="warn" mat-stroked-button routerLink="/genres" >Cancelar</a>
-    </div>
-</form>
+<app-genre-form (postForm)="saveChanges($event)"></app-genre-form>
 
