@@ -26,4 +26,27 @@ export class CustomValidators{
         }
     }
 
+    static dateNotInFuture(): ValidatorFn {
+        return (control: AbstractControl): ValidationErrors | null => {
+            const value = control.value as Date;
+
+            if (!value) return null;
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); // Set time to midnight for comparison
+
+            if (value > today) {
+                return {
+                    dateNotInFuture: {
+                        message: "The date cannot be in the future.",
+                        actual: value,
+                        expected: today
+                    }
+                };
+            }
+
+            return null;
+        } 
+    }
+
 }
