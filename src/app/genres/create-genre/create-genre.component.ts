@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { CustomValidators } from '../../shared/functions/validations';
 
 @Component({
   selector: 'app-create-genre',
@@ -20,7 +21,8 @@ export class CreateGenreComponent {
     name: ['', {validators: [
       Validators.required, 
       Validators.minLength(3),
-      Validators.maxLength(15)
+      Validators.maxLength(15),
+      CustomValidators.firstLetterCapitalized()
     ]}]
   });
 
@@ -47,6 +49,10 @@ export class CreateGenreComponent {
     if (control.hasError('maxlength')) {
       const requiredLength = control.getError('maxlength').requiredLength;
       return `Debe tener máximo ${requiredLength} caracteres.`;
+    }
+
+    if (control.hasError('firstLetterCapitalized')) {
+      return control.getError('firstLetterCapitalized').message; 
     }
 
     return 'El campo contiene errores.';
