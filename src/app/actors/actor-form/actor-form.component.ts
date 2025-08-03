@@ -38,7 +38,12 @@ export class ActorFormComponent implements OnInit {
       Validators.maxLength(50),
       CustomValidators.firstLetterCapitalized()
     ]}],
-    dateOfBirth: new FormControl<Date | null>(null)
+    dateOfBirth: new FormControl<Date | null>(null, {
+      validators: [
+        Validators.required,
+        CustomValidators.dateNotInFuture()
+      ]
+    })
   });
 
   actor: CreateActorDto = {
@@ -53,6 +58,34 @@ export class ActorFormComponent implements OnInit {
     const actor = this.form.value as CreateActorDto;
     actor.dateOfBirth = moment(actor.dateOfBirth).toDate();
     this.postForm.emit(actor);
+  }
+
+  getNameErrors(){
+    const nameControl = this.form.get('name');
+    if (nameControl?.hasError('required')) {
+      return 'El nombre es requerido';
+    }
+    if (nameControl?.hasError('minlength')) {
+      return 'El nombre debe tener al menos 5 caracteres';
+    }
+    if (nameControl?.hasError('maxlength')) {
+      return 'El nombre no puede exceder los 50 caracteres';
+    }
+    if (nameControl?.hasError('firstLetterCapitalized')) {
+      return 'La primera letra del nombre debe ser mayúscula';
+    }
+    return '';
+  }
+
+  getDateOfBirthErrors() {
+    const dateControl = this.form.get('dateOfBirth');
+    if (dateControl?.hasError('required')) {
+      return 'La fecha de nacimiento es requerida';
+    }
+    if (dateControl?.hasError('dateNotInFuture')) {
+      return 'La fecha de nacimiento no puede ser en el futuro';
+    }
+    return '';
   }
 
 }

@@ -63,7 +63,7 @@ export class GenreFormComponent implements OnInit {
       return control.getError('firstLetterCapitalized').message; 
     }
 
-    return 'El campo contiene errores.';
+    return '';
   }
 
   async loadChanges(){
