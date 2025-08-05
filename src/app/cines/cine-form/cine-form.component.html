@@ -1,0 +1,19 @@
+
+<form (submit)="loadChanges()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre Cine</mat-label>
+        <input matInput [formControl]="form.controls.name" />
+        <mat-error>{{getNameErrors()}}</mat-error>
+    </mat-form-field>
+
+    <div class="container-buttons">
+        <button 
+            type="submit" 
+            mat-flat-button 
+            class="primary" 
+            [disabled]="form.invalid"
+        >Guardar</button>
+        <a mat-stroked-button routerLink="/cines" class="warn">Cancelar</a>
+    </div>
+
+</form>
