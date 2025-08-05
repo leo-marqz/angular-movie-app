@@ -8,10 +8,11 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CustomValidators } from '../../shared/functions/validations';
 import moment from 'moment';
+import { InputImgComponent } from "../../shared/components/input-img/input-img.component";
 
 @Component({
   selector: 'app-actor-form',
-  imports: [MatInputModule, MatButtonModule, MatFormFieldModule, RouterLink, ReactiveFormsModule, MatDatepickerModule],
+  imports: [MatInputModule, MatButtonModule, MatFormFieldModule, RouterLink, ReactiveFormsModule, MatDatepickerModule, InputImgComponent],
   templateUrl: './actor-form.component.html',
   styleUrl: './actor-form.component.css'
 })
@@ -43,7 +44,8 @@ export class ActorFormComponent implements OnInit {
         Validators.required,
         CustomValidators.dateNotInFuture()
       ]
-    })
+    }),
+    picture: new FormControl<File|string|null>(null)
   });
 
   actor: CreateActorDto = {
@@ -57,6 +59,11 @@ export class ActorFormComponent implements OnInit {
 
     const actor = this.form.value as CreateActorDto;
     actor.dateOfBirth = moment(actor.dateOfBirth).toDate();
+
+    if(typeof actor.picture === 'string'){
+      actor.picture = undefined;
+    }
+
     this.postForm.emit(actor);
   }
 
@@ -86,6 +93,10 @@ export class ActorFormComponent implements OnInit {
       return 'La fecha de nacimiento no puede ser en el futuro';
     }
     return '';
+  }
+
+  fileSelected(file: File){
+    this.form.controls.picture.setValue(file);
   }
 
 }

@@ -13,6 +13,13 @@
         <mat-error>{{ getDateOfBirthErrors() }}</mat-error>
     </mat-form-field>
 
+    <app-input-img 
+        [title]="'Imagen del Actor'" 
+        [currentPictureUrl]="model?.picture"
+        (fileSelected)="fileSelected($event)" 
+    >
+    </app-input-img>
+
     <div class="container-buttons">
         <button mat-flat-button type="submit" [disabled]="form.invalid"> Guardar</button>
         <a class="warn" mat-stroked-button routerLink="/actors" >Cancelar</a>
