@@ -78,7 +78,7 @@ export class CineFormComponent implements OnInit {
     this.postForm.emit(cine);
   }
 
-  onCoordinateSelected(coordinates: Coordinate) {
+  onCoordinatesSelected(coordinates: Coordinate) {
     this.form.patchValue(coordinates);
     console.log('Selected coordinates:', coordinates);
   }

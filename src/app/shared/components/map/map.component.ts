@@ -33,6 +33,7 @@ export class MapComponent implements OnInit {
       iconSize: [25, 41],
       iconAnchor: [13, 41],
       iconUrl: 'assets/marker-icon-2x.png',
+      iconRetinaUrl: 'assets/marker-icon-2x.png',
       shadowUrl: 'assets/marker-shadow.png'
     })
   };
@@ -44,8 +45,8 @@ export class MapComponent implements OnInit {
         { maxZoom: 18, attribution: '...' }
       )
     ],
-    zoom: 16,
-    center: latLng(13.6696048, -89.2649618)
+    zoom: 14,
+    center: latLng(13.6763152, -89.2576251)
   };
 
   layers: Marker<any>[] = [];
@@ -56,7 +57,7 @@ export class MapComponent implements OnInit {
     console.log(`Clicked coordinates: ${latitude}, ${longitude}`);
 
     this.layers = []; // Clear previous markers
-    this.layers.push( marker([latitude, longitude], this.markerOptions) );
+    this.layers.push( marker( [latitude, longitude], this.markerOptions) );
     this.postCoordinates.emit({ latitude, longitude });
   }
 
