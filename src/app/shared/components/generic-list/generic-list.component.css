@@ -1,0 +1,10 @@
+
+.empty-message {
+    font-size: large;
+    font-weight: bold;
+    color: #9c9c9c;
+    text-align: left;
+    padding: 40px;
+    border: 1px dashed #9c9c9c;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
