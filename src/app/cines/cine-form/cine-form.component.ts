@@ -1,15 +1,17 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { CreateCineDto } from '../cines';
 import { CustomValidators } from '../../shared/functions/validations';
+import { MapComponent } from "../../shared/components/map/map.component";
+import { Coordinate } from '../../shared/components/map/coordinate';
 
 @Component({
   selector: 'app-cine-form',
-  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule, RouterLink],
+  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule, RouterLink, MapComponent],
   templateUrl: './cine-form.component.html',
   styleUrl: './cine-form.component.css'
 })
@@ -18,6 +20,8 @@ export class CineFormComponent implements OnInit {
   ngOnInit(): void {
     if(this.model){
       this.form.patchValue(this.model);
+      this.initialCoordinates
+        .push({latitude: this.model.latitude, longitude: this.model.longitude});
     }
   }
 
@@ -26,6 +30,8 @@ export class CineFormComponent implements OnInit {
 
   @Output()
   postForm = new EventEmitter<CreateCineDto>();
+
+  initialCoordinates: Coordinate[] = [];
 
   private formBuilder = inject(FormBuilder);
 
@@ -36,7 +42,9 @@ export class CineFormComponent implements OnInit {
       Validators.maxLength(25),
       CustomValidators.firstLetterCapitalized()
     ]}
-  ]
+  ],
+  latitude: new FormControl<number|null>(null, {validators: [Validators.required]}),
+  longitude: new FormControl<number|null>(null, {validators: [Validators.required]})
   });
 
   getNameErrors(){
@@ -70,4 +78,8 @@ export class CineFormComponent implements OnInit {
     this.postForm.emit(cine);
   }
 
+  onCoordinateSelected(coordinates: Coordinate) {
+    this.form.patchValue(coordinates);
+    console.log('Selected coordinates:', coordinates);
+  }
 }

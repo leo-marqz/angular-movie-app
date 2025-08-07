@@ -6,6 +6,9 @@
         <mat-error>{{getNameErrors()}}</mat-error>
     </mat-form-field>
 
+    <h4>Ubicación</h4>
+    <app-map (postCoordinate)="onCoordinateSelected($event)" [initialCoordinates]="initialCoordinates"></app-map>
+
     <div class="container-buttons">
         <button 
             type="submit" 

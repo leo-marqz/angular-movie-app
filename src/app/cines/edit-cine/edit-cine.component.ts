@@ -13,7 +13,8 @@ export class EditCineComponent {
   @Input({ transform: numberAttribute })
   id!:number;
 
-  cine: CineDto = {id: 1, name: 'Cine Plus'};
+  //13.6764414,-89.2558525 - la Gran Via
+  cine: CineDto = {id: 1, name: 'Cinemark', latitude: 13.6764414, longitude: -89.2558525};
 
   saveChanges(cine: CreateCineDto){
     console.log('Editando cine....', cine);
