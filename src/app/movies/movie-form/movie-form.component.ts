@@ -8,13 +8,16 @@ import { RouterLink } from '@angular/router';
 import { InputImgComponent } from '../../shared/components/input-img/input-img.component';
 import { CreateMovieDto, MovieDto } from '../movies';
 import moment from 'moment';
+import { MultiSelectOption } from '../../shared/components/multi-select/multiSelectModel';
+import { MultiSelectComponent } from "../../shared/components/multi-select/multi-select.component";
 
 @Component({
   selector: 'app-movie-form',
   imports: [
-    MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule, 
-    RouterLink, MatDatepickerModule, InputImgComponent
-  ],
+    MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule,
+    RouterLink, MatDatepickerModule, InputImgComponent,
+    MultiSelectComponent
+],
   templateUrl: './movie-form.component.html',
   styleUrl: './movie-form.component.css'
 })
@@ -25,6 +28,12 @@ export class MovieFormComponent implements OnInit {
       this.form.patchValue(this.model);
     }
   }
+
+  @Input({required: true}) 
+  unselectedOptions: MultiSelectOption[] = [];
+
+  @Input({required: true}) 
+  selectedOptions: MultiSelectOption[] = [];
 
   @Input() 
   model?: MovieDto;
@@ -50,6 +59,10 @@ export class MovieFormComponent implements OnInit {
 
     const movie = this.form.value as CreateMovieDto;
     movie.releaseDate = moment(movie.releaseDate).toDate();
+
+    const genreIds = this.selectedOptions.map((option) => option.key);
+
+    movie.genreIds = genreIds;
 
     this.postForm.emit(movie);
 
@@ -88,6 +101,11 @@ export class MovieFormComponent implements OnInit {
       return 'El póster es requerido';
     }
     return '';
+  }
+
+  resetForm() {
+    this.form.reset();
+    this.selectedOptions = [];
   }
 
 }

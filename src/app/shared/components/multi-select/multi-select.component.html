@@ -1,1 +1,29 @@
 
+<div class="container">
+    <fieldset>
+        <legend>Opciones</legend>
+        <ul>
+            @for(element of unselectedOptions; track $index){
+                <li (click)="select(element, $index)" class="unselected-option">
+                    {{element.value}}
+                </li>
+            }
+        </ul>
+    </fieldset>
+
+    <div class="div-buttons">
+        <button (click)="selectAll()" class="primary">>></button>
+        <button (click)="unselectAll()" class="warn"><<</button>
+    </div>
+
+    <fieldset>
+        <legend>Añadidos</legend>
+        <ul>
+            @for(element of selectedOptions; track $index){
+                <li (click)="unselect(element, $index)" class="selected-option">
+                    {{element.value}}
+                </li>
+            }
+        </ul>
+    </fieldset>
+</div>

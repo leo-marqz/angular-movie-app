@@ -12,4 +12,5 @@ export interface CreateMovieDto {
     releaseDate: Date;
     trailer: string;
     poster?: File;
+    genreIds?: number[];
 }
