@@ -1,0 +1,35 @@
+
+<form (submit)="loadChanges()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Titulo</mat-label>
+        <input matInput [formControl]="form.controls.title" />
+        <mat-error>{{ getTitleErrors() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Fecha de lanzamiento</mat-label>
+        <input matInput [formControl]="form.controls.releaseDate" [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>{{ getReleaseDateErrors() }}</mat-error>
+    </mat-form-field>
+
+    <!-- //trailer -->
+    <mat-form-field>
+        <mat-label>Tráiler</mat-label>
+        <input matInput [formControl]="form.controls.trailer" />
+        <mat-error>{{ getTrailerErrors() }}</mat-error>
+    </mat-form-field>
+
+    <app-input-img 
+        [title]="'Poster de la Pelicula'"
+        [currentPictureUrl]="model?.poster"
+        (fileSelected)="selectedFile($event)"
+    ></app-input-img>
+
+    <div class="container-buttons">
+        <button mat-raised-button class="primary" type="submit">Guardar</button>
+        <button mat-raised-button class="warn" type="button" (click)="form.reset()">Cancelar</button>
+    </div>
+</form>
+ 

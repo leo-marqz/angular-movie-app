@@ -1,3 +1,3 @@
-<p>edit-movie works!</p>
+<h2>Editar película</h2>
 
-<p>El ID del pelicula a editar es: {{id}}</p>
+<app-movie-form (postForm)="saveChanges($event)" [model]="movie" ></app-movie-form>
