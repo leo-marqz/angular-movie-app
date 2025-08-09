@@ -1,0 +1,44 @@
+
+.actor-autocomplete-img{
+    vertical-align: middle;
+    height: 45px;
+    /* width: 35px; */
+    margin-right: 5px;
+    padding:5px;
+}
+
+mat-icon{
+    cursor: pointer;
+}
+
+mat-icon:hover{
+    color:red;
+}
+
+.table-container{
+    width: 100%;
+    max-width: 500px;
+}
+
+table{
+    margin: 20px 0px;
+}
+
+.table-img{
+    padding-top: 5px;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid rgb(219, 218, 218);
+  border-top: 0px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+

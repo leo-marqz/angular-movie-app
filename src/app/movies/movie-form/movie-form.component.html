@@ -29,9 +29,18 @@
 
     <h4>Seleccione los Géneros</h4>
     <app-multi-select 
-        [unselectedOptions]="unselectedOptions"
-        [selectedOptions]="selectedOptions"
+        [unselectedOptions]="unselectedGenres"
+        [selectedOptions]="selectedGenres"
     ></app-multi-select>
+    
+    <h4>Seleccione los Cines</h4>
+    <app-multi-select 
+        [unselectedOptions]="unselectedCines"
+        [selectedOptions]="selectedCines"
+    ></app-multi-select>
+
+    <h4>Seleccione los Actores</h4>
+    <app-actor-autocomplete [selectedActors]="selectedActors" ></app-actor-autocomplete>
 
     <div class="container-buttons">
         <button mat-raised-button class="primary" type="submit">Guardar</button>

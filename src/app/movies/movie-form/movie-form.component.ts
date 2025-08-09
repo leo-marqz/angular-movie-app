@@ -10,13 +10,16 @@ import { CreateMovieDto, MovieDto } from '../movies';
 import moment from 'moment';
 import { MultiSelectOption } from '../../shared/components/multi-select/multiSelectModel';
 import { MultiSelectComponent } from "../../shared/components/multi-select/multi-select.component";
+import { ActorAutocompleteComponent } from "../../actors/actor-autocomplete/actor-autocomplete.component";
+import { ActorAutoCompleteDto } from '../../actors/actors';
 
 @Component({
   selector: 'app-movie-form',
   imports: [
     MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule,
     RouterLink, MatDatepickerModule, InputImgComponent,
-    MultiSelectComponent
+    MultiSelectComponent,
+    ActorAutocompleteComponent
 ],
   templateUrl: './movie-form.component.html',
   styleUrl: './movie-form.component.css'
@@ -30,10 +33,19 @@ export class MovieFormComponent implements OnInit {
   }
 
   @Input({required: true}) 
-  unselectedOptions: MultiSelectOption[] = [];
+  unselectedGenres: MultiSelectOption[] = [];
 
   @Input({required: true}) 
-  selectedOptions: MultiSelectOption[] = [];
+  selectedGenres: MultiSelectOption[] = [];
+
+  @Input({required: true})
+  unselectedCines: MultiSelectOption[] = [];
+
+  @Input({required: true})
+  selectedCines: MultiSelectOption[] = [];
+
+  @Input({required: true})
+  selectedActors: ActorAutoCompleteDto[] = [];
 
   @Input() 
   model?: MovieDto;
@@ -60,9 +72,12 @@ export class MovieFormComponent implements OnInit {
     const movie = this.form.value as CreateMovieDto;
     movie.releaseDate = moment(movie.releaseDate).toDate();
 
-    const genreIds = this.selectedOptions.map((option) => option.key);
+    const genreIds = this.selectedGenres.map((genre) => genre.key);
+    const cinesIds = this.selectedCines.map((cine)=>cine.key);
 
     movie.genreIds = genreIds;
+    movie.cinesIds = cinesIds;
+    movie.actors = this.selectedActors;
 
     this.postForm.emit(movie);
 
@@ -105,7 +120,7 @@ export class MovieFormComponent implements OnInit {
 
   resetForm() {
     this.form.reset();
-    this.selectedOptions = [];
+    this.selectedGenres = [];
   }
 
 }

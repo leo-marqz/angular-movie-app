@@ -1,3 +1,10 @@
 <h2>Editar película</h2>
 
-<app-movie-form (postForm)="saveChanges($event)" [model]="movie" ></app-movie-form>
+<app-movie-form 
+    [unselectedGenres]="unselectedGenres"
+    [selectedGenres]="selectedGenres"
+    [unselectedCines]="unselectedCines"
+    [selectedCines]="selectedCines"
+    [selectedActors]="selectedActors"
+    (postForm)="saveChanges($event)" 
+    [model]="movie" ></app-movie-form>

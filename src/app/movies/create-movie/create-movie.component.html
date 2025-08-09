@@ -1,7 +1,10 @@
-<p>Crear nueva película</p>
+<p>Añadir película</p>
 
 <app-movie-form 
     (postForm)="saveChanges($event)" 
-    [unselectedOptions]="unselectedOptions"
-    [selectedOptions]="selectedOptions"
+    [unselectedGenres]="unselectedGenres"
+    [selectedGenres]="selectedGenres"
+    [unselectedCines]="unselectedCines"
+    [selectedCines]="selectedCines"
+    [selectedActors]="selectedActors"
 ></app-movie-form>

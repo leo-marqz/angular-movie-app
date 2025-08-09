@@ -11,3 +11,10 @@ export interface CreateActorDto {
     dateOfBirth: Date;
     picture?: File;
 }
+
+export interface ActorAutoCompleteDto {
+    id: number;
+    name: string;
+    character: string;
+    picture: string;
+}
