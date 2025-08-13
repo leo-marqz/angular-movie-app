@@ -9,6 +9,8 @@ import { CustomValidators } from '../../shared/functions/validations';
 import color from 'picocolors';
 import { GenreFormComponent } from "../genre-form/genre-form.component";
 import { CreateGenreDto } from '../genre';
+import { GenreService } from '../genre.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-genre',
@@ -19,10 +21,19 @@ import { CreateGenreDto } from '../genre';
 export class CreateGenreComponent {
 
   private router: Router = inject(Router);
+  private genreService = inject(GenreService);
+  private snackBar = inject(MatSnackBar);
   
 
   async saveChanges(genre: CreateGenreDto){
-    console.log(`Saving new genre... ${JSON.stringify(genre)}`);
+    this.genreService.create(genre).subscribe(()=>{
+      this.snackBar.open(
+        `El genero ${genre.name} ha sido agregado!`, 
+        'X', 
+        { duration: 3000 }
+      );
+      this.router.navigate(['/genres']);
+    });
   }
 
 }
