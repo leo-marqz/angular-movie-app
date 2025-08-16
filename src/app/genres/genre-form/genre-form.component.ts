@@ -35,7 +35,7 @@ export class GenreFormComponent implements OnInit {
     name: ['', {validators: [
       Validators.required, 
       Validators.minLength(3),
-      Validators.maxLength(15),
+      Validators.maxLength(50),
       CustomValidators.firstLetterCapitalized()
     ]}]
   });
