@@ -9,7 +9,7 @@ import { MenuComponent } from "./shared/components/menu/menu.component";
   selector: 'app-root',
   standalone: true,
   // imports: [DatePipe, CurrencyPipe, NgOptimizedImage, NgIf],
-  imports: [ListMoviesComponent, MatDividerModule, MenuComponent, RouterOutlet],
+  imports: [MatDividerModule, MenuComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
