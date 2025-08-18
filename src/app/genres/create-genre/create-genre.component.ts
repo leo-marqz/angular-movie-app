@@ -32,7 +32,7 @@ export class CreateGenreComponent {
   async saveChanges(genre: CreateGenreDto){
     this.genreService.create(genre).subscribe({
       next: () => {
-        this.snackBar.open(`✅ El genero agregado exitosamente!`, '🞮', { duration: 5000 });
+        this.snackBar.open(`✅ El genero fue agregado exitosamente!`, '🞮', { duration: 5000 });
         this.router.navigate(['/genres']);
       },
       error: (err) => {
