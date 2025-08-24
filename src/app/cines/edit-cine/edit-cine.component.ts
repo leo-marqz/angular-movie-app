@@ -1,6 +1,6 @@
 import { Component, Input, numberAttribute } from '@angular/core';
 import { CineFormComponent } from "../cine-form/cine-form.component";
-import { CineDto, CreateCineDto } from '../cines';
+import { CineDto, CreateCineDto } from "../cines";
 
 @Component({
   selector: 'app-edit-cine',

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { icon, latLng, LeafletMouseEvent, marker, Marker, tileLayer } from 'leaflet';
 import { LeafletModule } from '@bluehalo/ngx-leaflet';
-import { Coordinate } from './coordinate';
+import { Coordinate } from "./coordinate";
 
 @Component({
   selector: 'app-map',

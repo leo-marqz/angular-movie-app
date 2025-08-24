@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { toBase64 } from '../../functions/toBase64';
+import { toBase64 } from "../../functions/toBase64";
 
 @Component({
   selector: 'app-input-img',

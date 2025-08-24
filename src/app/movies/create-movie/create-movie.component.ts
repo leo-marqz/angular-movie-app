@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MovieFormComponent } from "../movie-form/movie-form.component";
-import { CreateMovieDto } from '../movies';
-import { MultiSelectOption } from '../../shared/components/multi-select/multiSelectModel';
-import { ActorAutoCompleteDto } from '../../actors/actors';
+import { CreateMovieDto } from "../movies";
+import { MultiSelectOption } from "../../shared/components/multi-select/multiSelectModel";
+import { ActorAutoCompleteDto } from "../../actors/actors";
 
 @Component({
   selector: 'app-create-movie',

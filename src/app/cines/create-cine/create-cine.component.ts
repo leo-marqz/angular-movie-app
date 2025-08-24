@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CreateCineDto } from '../cines';
+import { CreateCineDto } from "../cines";
 import { CineFormComponent } from "../cine-form/cine-form.component";
 
 @Component({

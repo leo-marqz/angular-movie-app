@@ -1,12 +1,12 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { ActorDto, CreateActorDto } from '../actors';
+import { ActorDto, CreateActorDto } from "../actors";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterLink } from '@angular/router';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { CustomValidators } from '../../shared/functions/validations';
+import { CustomValidators } from "../../shared/functions/validations";
 import moment from 'moment';
 import { InputImgComponent } from "../../shared/components/input-img/input-img.component";
 

@@ -5,13 +5,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-import { InputImgComponent } from '../../shared/components/input-img/input-img.component';
-import { CreateMovieDto, MovieDto } from '../movies';
+import { InputImgComponent } from "../../shared/components/input-img/input-img.component";
+import { CreateMovieDto, MovieDto } from "../movies";
 import moment from 'moment';
-import { MultiSelectOption } from '../../shared/components/multi-select/multiSelectModel';
+import { MultiSelectOption } from "../../shared/components/multi-select/multiSelectModel";
 import { MultiSelectComponent } from "../../shared/components/multi-select/multi-select.component";
 import { ActorAutocompleteComponent } from "../../actors/actor-autocomplete/actor-autocomplete.component";
-import { ActorAutoCompleteDto } from '../../actors/actors';
+import { ActorAutoCompleteDto } from "../../actors/actors";
 
 @Component({
   selector: 'app-movie-form',

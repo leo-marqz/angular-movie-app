@@ -1,3 +1,5 @@
 <p>Añadir Actor</p>
 
+<app-show-errors [errors]="errors" ></app-show-errors>
+
 <app-actor-form (postForm)="saveChanges($event)"></app-actor-form>

@@ -1,10 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { CreateGenreDto, GenreDto } from './genre';
+import { CreateGenreDto, GenreDto } from "./genre";
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment.development';
-import { PaginationDto } from '../shared/models/pagination';
-import { buildQueryParams } from '../shared/functions/querystring';
+import { environment } from "../../environments/environment.development";
+import { PaginationDto } from "../shared/models/pagination";
+import { buildQueryParams } from "../shared/functions/querystring";
 
 @Injectable({
   providedIn: 'root'

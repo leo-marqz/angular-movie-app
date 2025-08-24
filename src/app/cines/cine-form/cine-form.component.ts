@@ -4,10 +4,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-import { CreateCineDto } from '../cines';
-import { CustomValidators } from '../../shared/functions/validations';
+import { CreateCineDto } from "../cines";
+import { CustomValidators } from "../../shared/functions/validations";
 import { MapComponent } from "../../shared/components/map/map.component";
-import { Coordinate } from '../../shared/components/map/coordinate';
+import { Coordinate } from "../../shared/components/map/coordinate";
 
 @Component({
   selector: 'app-cine-form',

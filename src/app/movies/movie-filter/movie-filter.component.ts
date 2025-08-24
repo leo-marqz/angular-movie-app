@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ListMoviesComponent } from "../list-movies/list-movies.component";
-import { MovieFilter } from './movie-filter';
+import { MovieFilter } from "./movie-filter";
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 

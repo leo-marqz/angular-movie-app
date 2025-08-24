@@ -6,7 +6,6 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { CustomValidators } from '../../shared/functions/validations';
 
-import color from 'picocolors';
 import { GenreFormComponent } from "../genre-form/genre-form.component";
 import { CreateGenreDto } from '../genre';
 import { GenreService } from '../genre.service';
@@ -29,7 +28,7 @@ export class CreateGenreComponent {
   errors: string[] = [];
   
 
-  async saveChanges(genre: CreateGenreDto){
+  saveChanges(genre: CreateGenreDto){
     this.genreService.create(genre).subscribe({
       next: () => {
         this.snackBar.open(`✅ El genero fue agregado exitosamente!`, '🞮', { duration: 5000 });

@@ -1,13 +1,13 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CustomValidators } from '../../shared/functions/validations';
+import { CustomValidators } from "../../shared/functions/validations";
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 
 import color from 'picocolors';
-import { CreateGenreDto, GenreDto } from '../genre';
+import { CreateGenreDto, GenreDto } from "../genre";
 
 @Component({
   selector: 'app-genre-form',
